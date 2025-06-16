@@ -2,13 +2,10 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net40</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\FNA\FNA.NetFramework.csproj">
-      <Project>{35253CE1-C864-4CD3-8249-4D1319748E8F}</Project>
-      <Name>FNA</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\FNA\FNA.Core.csproj" />
   </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tweener", "Tweener\Tweener.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputSystem", "InputSystem\InputSystem.csproj", "{4EFA1C2F-A065-4520-A8AC-A71EA1751C54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FNA", "..\FNA\FNA.NetFramework.csproj", "{35253CE1-C864-4CD3-8249-4D1319748E8F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FNA.Core", "..\FNA\FNA.Core.csproj", "{66B6F7BB-03FD-4C65-8662-3A490B384FEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{050AF89B-5F49-455E-93C1-BFE7FF9506D2}.Debug|x64.Build.0 = Debug|x64
 		{050AF89B-5F49-455E-93C1-BFE7FF9506D2}.Release|x64.ActiveCfg = Release|x64
 		{050AF89B-5F49-455E-93C1-BFE7FF9506D2}.Release|x64.Build.0 = Release|x64
-		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|x64.ActiveCfg = Debug|x64
-		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|x64.Build.0 = Debug|x64
-		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|x64.ActiveCfg = Release|x64
-		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|x64.Build.0 = Release|x64
 		{4526354A-4053-41F2-9124-FFC831A7FED1}.Debug|x64.ActiveCfg = Debug|x64
 		{4526354A-4053-41F2-9124-FFC831A7FED1}.Debug|x64.Build.0 = Debug|x64
 		{4526354A-4053-41F2-9124-FFC831A7FED1}.Release|x64.ActiveCfg = Release|x64
@@ -43,5 +39,9 @@ Global
 		{D9583122-AC6D-41EB-8292-04BDD0519D7C}.Debug|x64.Build.0 = Debug|x64
 		{D9583122-AC6D-41EB-8292-04BDD0519D7C}.Release|x64.ActiveCfg = Release|x64
 		{D9583122-AC6D-41EB-8292-04BDD0519D7C}.Release|x64.Build.0 = Release|x64
+		{66B6F7BB-03FD-4C65-8662-3A490B384FEB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{66B6F7BB-03FD-4C65-8662-3A490B384FEB}.Debug|x64.Build.0 = Debug|Any CPU
+		{66B6F7BB-03FD-4C65-8662-3A490B384FEB}.Release|x64.ActiveCfg = Release|Any CPU
+		{66B6F7BB-03FD-4C65-8662-3A490B384FEB}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

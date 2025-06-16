@@ -97,10 +97,11 @@ namespace RogueCastle
                             string date = DateTime.Now.ToString("dd-mm-yyyy_HH-mm-ss");
                             if (!Directory.Exists(Program.OSDir))
                                 Directory.CreateDirectory(Program.OSDir);
-                            string configFilePath = Path.Combine(Program.OSDir, "CrashLog_" + date + ".log");
+                            string crashLogFilePath = Path.Combine(Program.OSDir, "DzhakesMod","CrashLog_" + date + ".log");
+                            Directory.CreateDirectory(Path.GetDirectoryName(crashLogFilePath) ?? "");
 
                             //using (StreamWriter writer = new StreamWriter("CrashLog_" + date + ".log", false))
-                            using (StreamWriter writer = new StreamWriter(configFilePath, false))
+                            using (StreamWriter writer = new StreamWriter(crashLogFilePath, false))
                             {
                                 writer.WriteLine(e.ToString());
                             }

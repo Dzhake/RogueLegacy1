@@ -1315,7 +1315,8 @@ namespace RogueCastle
 
             if (!Directory.Exists(Program.OSDir))
                 Directory.CreateDirectory(Program.OSDir);
-            string configFilePath = Path.Combine(Program.OSDir, "GameConfig.ini");
+            string configFilePath = Path.Combine(Program.OSDir, "DzhakesMod", "GameConfig.ini");
+            Directory.CreateDirectory(Path.GetDirectoryName(configFilePath) ?? ""); //prevent DirectoryNotFoundException
 
             using (StreamWriter writer = new StreamWriter(configFilePath, false))
             {
@@ -1388,7 +1389,10 @@ namespace RogueCastle
             InitializeDefaultConfig(); // Initialize a default config first in case new config data is added in the future.
             try
             {
-                string configFilePath = Path.Combine(Program.OSDir, "GameConfig.ini");
+                string configFilePath = Path.Combine(Program.OSDir, "DzhakesMod", "GameConfig.ini");
+                string oldConfigFilePath = Path.Combine(Program.OSDir, "GameConfig.ini");
+                if (!File.Exists(configFilePath) && File.Exists(oldConfigFilePath))
+                    configFilePath = oldConfigFilePath; //load config from vanilla
 
                 using (StreamReader reader = new StreamReader(configFilePath))
                 {
