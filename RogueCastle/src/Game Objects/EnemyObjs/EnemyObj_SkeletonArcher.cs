@@ -216,9 +216,7 @@ namespace RogueCastle
             fireStraightProjectile.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, projData));
             fireStraightProjectile.AddAction(new Play3DSoundLogicAction(this, m_target,"SkeletonArcher_Attack_01", "SkeletonArcher_Attack_02", "SkeletonArcher_Attack_03"));
             fireStraightProjectile.AddAction(new PlayAnimationLogicAction("Attack", "EndAttack"));
-            fireStraightProjectile.AddAction(new DelayLogicAction(0.5f));
             fireStraightProjectile.AddAction(new ChangePropertyLogicAction(this.GetChildAt(1), "Rotation", 0));
-            fireStraightProjectile.AddAction(new DelayLogicAction(0.5f));
             fireStraightProjectile.AddAction(new LockFaceDirectionLogicAction(false));
 
             LogicSet fireStraightAdvancedProjectile = new LogicSet(this);
@@ -235,9 +233,7 @@ namespace RogueCastle
             fireStraightAdvancedProjectile.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, projData));
             fireStraightAdvancedProjectile.AddAction(new Play3DSoundLogicAction(this, m_target,"SkeletonArcher_Attack_01", "SkeletonArcher_Attack_02", "SkeletonArcher_Attack_03"));
             fireStraightAdvancedProjectile.AddAction(new PlayAnimationLogicAction("Attack", "EndAttack"));
-            fireStraightAdvancedProjectile.AddAction(new DelayLogicAction(0.5f));
             fireStraightAdvancedProjectile.AddAction(new ChangePropertyLogicAction(this.GetChildAt(1), "Rotation", 0));
-            fireStraightAdvancedProjectile.AddAction(new DelayLogicAction(0.5f));
             fireStraightAdvancedProjectile.AddAction(new LockFaceDirectionLogicAction(false));
 
             LogicSet fireStraightExpertProjectile = new LogicSet(this);
@@ -256,9 +252,7 @@ namespace RogueCastle
             fireStraightExpertProjectile.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, projData));
             fireStraightExpertProjectile.AddAction(new Play3DSoundLogicAction(this, m_target,"SkeletonArcher_Attack_01", "SkeletonArcher_Attack_02", "SkeletonArcher_Attack_03"));
             fireStraightExpertProjectile.AddAction(new PlayAnimationLogicAction("Attack", "EndAttack"));
-            fireStraightExpertProjectile.AddAction(new DelayLogicAction(0.5f));
             fireStraightExpertProjectile.AddAction(new ChangePropertyLogicAction(this.GetChildAt(1), "Rotation", 0));
-            fireStraightExpertProjectile.AddAction(new DelayLogicAction(0.5f));
             fireStraightExpertProjectile.AddAction(new LockFaceDirectionLogicAction(false));
             #endregion
 
@@ -280,9 +274,7 @@ namespace RogueCastle
             //fireArchProjectile.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, projData));
             fireArchProjectile.AddAction(new Play3DSoundLogicAction(this, m_target,"SkeletonArcher_Attack_01", "SkeletonArcher_Attack_02", "SkeletonArcher_Attack_03"));
             fireArchProjectile.AddAction(new PlayAnimationLogicAction("Attack", "EndAttack"));
-            fireArchProjectile.AddAction(new DelayLogicAction(0.5f));
             fireArchProjectile.AddAction(new ChangePropertyLogicAction(this.GetChildAt(1), "Rotation", 0));
-            fireArchProjectile.AddAction(new DelayLogicAction(0.5f));
             fireArchProjectile.AddAction(new LockFaceDirectionLogicAction(false));
 
             LogicSet fireArchAdvancedProjectile = new LogicSet(this);
@@ -299,9 +291,7 @@ namespace RogueCastle
             fireArchAdvancedProjectile.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, projData));
             fireArchAdvancedProjectile.AddAction(new Play3DSoundLogicAction(this, m_target,"SkeletonArcher_Attack_01", "SkeletonArcher_Attack_02", "SkeletonArcher_Attack_03"));
             fireArchAdvancedProjectile.AddAction(new PlayAnimationLogicAction("Attack", "EndAttack"));
-            fireArchAdvancedProjectile.AddAction(new DelayLogicAction(0.5f));
             fireArchAdvancedProjectile.AddAction(new ChangePropertyLogicAction(this.GetChildAt(1), "Rotation", 0));
-            fireArchAdvancedProjectile.AddAction(new DelayLogicAction(0.5f));
             fireArchAdvancedProjectile.AddAction(new LockFaceDirectionLogicAction(false));
 
             LogicSet fireArchExpertProjectile = new LogicSet(this);
@@ -320,9 +310,7 @@ namespace RogueCastle
             fireArchExpertProjectile.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, projData));
             fireArchExpertProjectile.AddAction(new Play3DSoundLogicAction(this, m_target,"SkeletonArcher_Attack_01", "SkeletonArcher_Attack_02", "SkeletonArcher_Attack_03"));
             fireArchExpertProjectile.AddAction(new PlayAnimationLogicAction("Attack", "EndAttack"));
-            fireArchExpertProjectile.AddAction(new DelayLogicAction(0.5f));
             fireArchExpertProjectile.AddAction(new ChangePropertyLogicAction(this.GetChildAt(1), "Rotation", 0));
-            fireArchExpertProjectile.AddAction(new DelayLogicAction(0.5f));
             fireArchExpertProjectile.AddAction(new LockFaceDirectionLogicAction(false));
             #endregion
 
@@ -339,9 +327,7 @@ namespace RogueCastle
             fireHighArchProjectile.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, projData));
             fireHighArchProjectile.AddAction(new Play3DSoundLogicAction(this, m_target,"SkeletonArcher_Attack_01", "SkeletonArcher_Attack_02", "SkeletonArcher_Attack_03"));
             fireHighArchProjectile.AddAction(new PlayAnimationLogicAction("Attack", "EndAttack"));
-            fireHighArchProjectile.AddAction(new DelayLogicAction(0.5f));
             fireHighArchProjectile.AddAction(new ChangePropertyLogicAction(this.GetChildAt(1), "Rotation", 0));
-            fireHighArchProjectile.AddAction(new DelayLogicAction(0.5f));
             fireHighArchProjectile.AddAction(new LockFaceDirectionLogicAction(false));
 
             LogicSet fireHighArchAdvancedProjectile = new LogicSet(this);
@@ -358,9 +344,7 @@ namespace RogueCastle
             fireHighArchAdvancedProjectile.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, projData));
             fireHighArchAdvancedProjectile.AddAction(new Play3DSoundLogicAction(this, m_target,"SkeletonArcher_Attack_01", "SkeletonArcher_Attack_02", "SkeletonArcher_Attack_03"));
             fireHighArchAdvancedProjectile.AddAction(new PlayAnimationLogicAction("Attack", "EndAttack"));
-            fireHighArchAdvancedProjectile.AddAction(new DelayLogicAction(0.5f));
             fireHighArchAdvancedProjectile.AddAction(new ChangePropertyLogicAction(this.GetChildAt(1), "Rotation", 0));
-            fireHighArchAdvancedProjectile.AddAction(new DelayLogicAction(0.5f));
             fireHighArchAdvancedProjectile.AddAction(new LockFaceDirectionLogicAction(false));
 
             LogicSet fireHighArchExpertProjectile = new LogicSet(this);
@@ -380,9 +364,7 @@ namespace RogueCastle
             fireHighArchExpertProjectile.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, projData));
             fireHighArchExpertProjectile.AddAction(new Play3DSoundLogicAction(this, m_target,"SkeletonArcher_Attack_01", "SkeletonArcher_Attack_02", "SkeletonArcher_Attack_03"));
             fireHighArchExpertProjectile.AddAction(new PlayAnimationLogicAction("Attack", "EndAttack"));
-            fireHighArchExpertProjectile.AddAction(new DelayLogicAction(0.5f));
             fireHighArchExpertProjectile.AddAction(new ChangePropertyLogicAction(this.GetChildAt(1), "Rotation", 0));
-            fireHighArchExpertProjectile.AddAction(new DelayLogicAction(0.5f));
             fireHighArchExpertProjectile.AddAction(new LockFaceDirectionLogicAction(false));
             #endregion
 
