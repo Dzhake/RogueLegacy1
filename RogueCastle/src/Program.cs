@@ -48,20 +48,20 @@ namespace RogueCastle
                 if (LevelEV.CREATE_RETAIL_VERSION == true)
                 {
                     LevelEV.SHOW_ENEMY_RADII = false;
-                    LevelEV.ENABLE_DEBUG_INPUT = false;
+                    LevelEV.ENABLE_DEBUG_INPUT = true;
                     LevelEV.UNLOCK_ALL_ABILITIES = false;
                     LevelEV.TESTROOM_LEVELTYPE = GameTypes.LevelType.CASTLE;
                     LevelEV.TESTROOM_REVERSE = false;
                     LevelEV.RUN_TESTROOM = false;
                     LevelEV.SHOW_DEBUG_TEXT = false;
                     LevelEV.LOAD_TITLE_SCREEN = false;
-                    LevelEV.LOAD_SPLASH_SCREEN = true;
+                    LevelEV.LOAD_SPLASH_SCREEN = false; //true
                     LevelEV.SHOW_SAVELOAD_DEBUG_TEXT = false;
                     LevelEV.DELETE_SAVEFILE = false;
                     LevelEV.CLOSE_TESTROOM_DOORS = false;
                     LevelEV.RUN_TUTORIAL = false;
                     LevelEV.RUN_DEMO_VERSION = false;
-                    LevelEV.DISABLE_SAVING = false;
+                    LevelEV.DISABLE_SAVING = true; //false
                     LevelEV.RUN_CRASH_LOGS = true;
                     LevelEV.WEAKEN_BOSSES = false;
                     LevelEV.ENABLE_BACKUP_SAVING = true;
