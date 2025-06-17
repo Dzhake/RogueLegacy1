@@ -304,10 +304,16 @@ namespace RogueCastle
             fireProjectileSprayLS.AddAction(new Play3DSoundLogicAction(this, m_target, "EyeballFire1"));
             fireProjectileSprayLS.AddAction(new DelayLogicAction(0.1f));
             //ThrowSprayProjectiles(fireProjectileSprayLS);
-            fireProjectileSprayLS.AddAction(new RunFunctionLogicAction(this, "ThrowSprayProjectiles", true));
-            fireProjectileSprayLS.AddAction(new DelayLogicAction(1.6f));
-            fireProjectileSprayLS.AddAction(new RunFunctionLogicAction(this, "ThrowSprayProjectiles", true));
-            fireProjectileSprayLS.AddAction(new DelayLogicAction(1.6f));
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 10; j <= 40; j += 10)
+                {
+                    fireProjectileSprayLS.AddAction(new RunFunctionLogicAction(this, "ThrowSprayProjectiles", j));
+                    fireProjectileSprayLS.AddAction(new DelayLogicAction(0.4f)); 
+                }
+                fireProjectileSprayLS.AddAction(new DelayLogicAction(0.8f));                
+            }
+            
             fireProjectileSprayLS.AddAction(new ChangeSpriteLogicAction("EnemyEyeballBossEye_Character", false, false));
             fireProjectileSprayLS.AddAction(new RunFunctionLogicAction(m_pupil, "ChangeSprite", "EnemyEyeballBossPupil_Sprite"));
             fireProjectileSprayLS.AddAction(new RunFunctionLogicAction(this, "UnlockEyeball"));
@@ -321,16 +327,15 @@ namespace RogueCastle
             fireProjectileRandomLS.AddAction(new Play3DSoundLogicAction(this, m_target, "EyeballFire1"));
             fireProjectileRandomLS.AddAction(new DelayLogicAction(0.1f));
             //ThrowRandomProjectiles(fireProjectileRandomLS);
-            fireProjectileRandomLS.AddAction(new RunFunctionLogicAction(this, "ThrowRandomProjectiles"));
-            fireProjectileRandomLS.AddAction(new DelayLogicAction(0.575f));
-            fireProjectileRandomLS.AddAction(new RunFunctionLogicAction(this, "ThrowRandomProjectiles"));
-            fireProjectileRandomLS.AddAction(new DelayLogicAction(0.575f));
-            fireProjectileRandomLS.AddAction(new RunFunctionLogicAction(this, "ThrowRandomProjectiles"));
-            fireProjectileRandomLS.AddAction(new DelayLogicAction(0.575f));
-            fireProjectileRandomLS.AddAction(new RunFunctionLogicAction(this, "ThrowRandomProjectiles"));
-            fireProjectileRandomLS.AddAction(new DelayLogicAction(0.575f));
-            fireProjectileRandomLS.AddAction(new RunFunctionLogicAction(this, "ThrowRandomProjectiles"));
-            fireProjectileRandomLS.AddAction(new DelayLogicAction(0.575f));
+            for (int i = 0; i <= 3; i++)
+            {
+                for (int j = 0; j <= 3; j++)
+                {
+                    fireProjectileRandomLS.AddAction(new RunFunctionLogicAction(this, "ThrowRandomProjectiles"));
+                    fireProjectileRandomLS.AddAction(new DelayLogicAction(0.35f));
+                }
+                fireProjectileRandomLS.AddAction(new DelayLogicAction(0.8f));
+            }
             fireProjectileRandomLS.AddAction(new ChangeSpriteLogicAction("EnemyEyeballBossEye_Character", false, false));
             fireProjectileRandomLS.AddAction(new RunFunctionLogicAction(m_pupil, "ChangeSprite", "EnemyEyeballBossPupil_Sprite"));
             fireProjectileRandomLS.AddAction(new RunFunctionLogicAction(this, "UnlockEyeball"));
@@ -412,16 +417,16 @@ namespace RogueCastle
             };
 
             int flipper = CDGMath.RandomPlusMinus();
-            for (int i = 0; i <= 170; i = i + 10)
+            for (int i = 0; i <= 170; i += 10) //repeat 18 times, +10 degrees each time
             {
-                cardinalData.AngleOffset =  0 + i * flipper;
-                ls.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, cardinalData));
-                cardinalData.AngleOffset = 90 + i * flipper;
-                ls.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, cardinalData));
-                cardinalData.AngleOffset = 180 + i * flipper;
-                ls.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, cardinalData));
-                cardinalData.AngleOffset = 270 + i * flipper;
-                ls.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, cardinalData));
+                for (int j = 0; j < 360; j += 90) //shoot in 4 directions, +90 degrees each time
+                {
+                    for (int k = 0; k <= 30; k += 10) //with 4 shots behind, like red eye, -10 degrees each time
+                    {
+                        cardinalData.AngleOffset = (i + j - k) * flipper;
+                        ls.AddAction(new FireProjectileLogicAction(m_levelScreen.ProjectileManager, cardinalData));
+                    }                    
+                }
                 ls.AddAction(new DelayLogicAction(0.175f));
             }
 
@@ -430,40 +435,37 @@ namespace RogueCastle
 
         public void ThrowCardinalProjectiles(int startProjIndex, bool randomizeFlipper, int flipper)
         {
-            if (startProjIndex < 17)
+            if (startProjIndex == 18) return;
+            
+            if (randomizeFlipper)
+                flipper = CDGMath.RandomPlusMinus();
+
+            ProjectileData cardinalData = new ProjectileData(this)
             {
-                ProjectileData cardinalData = new ProjectileData(this)
+                SpriteName = "EyeballProjectile_Sprite",
+                SourceAnchor = Vector2.Zero,
+                Target = null,
+                Speed = new Vector2(this.ProjectileSpeed, this.ProjectileSpeed),
+                IsWeighted = false,
+                RotationSpeed = 0,
+                Damage = Damage,
+                AngleOffset = 0,
+                Scale = ProjectileScale,
+                CollidesWithTerrain = false,
+                Angle = new Vector2(0, 0),
+            };
+            
+            for (int j = 0; j < 360; j += 90) //shoot in 4 directions, +90 degrees each time
+            {
+                for (int k = 0; k <= 20; k += 10) //with 3 shots behind, like red eye, -10 degrees each time
                 {
-                    SpriteName = "EyeballProjectile_Sprite",
-                    SourceAnchor = Vector2.Zero,
-                    Target = null,
-                    Speed = new Vector2(this.ProjectileSpeed, this.ProjectileSpeed),
-                    IsWeighted = false,
-                    RotationSpeed = 0,
-                    Damage = Damage,
-                    AngleOffset = 0,
-                    Scale = ProjectileScale,
-                    CollidesWithTerrain = false,
-                    Angle = new Vector2(0, 0),
-                };
-
-                if (randomizeFlipper == true)
-                    flipper = CDGMath.RandomPlusMinus();
-
-                cardinalData.AngleOffset = -10 + (startProjIndex * 10) * flipper;
-                m_levelScreen.ProjectileManager.FireProjectile(cardinalData);
-                cardinalData.AngleOffset = 80 + (startProjIndex * 10) * flipper;
-                m_levelScreen.ProjectileManager.FireProjectile(cardinalData);
-                cardinalData.AngleOffset = 170 + (startProjIndex * 10) * flipper;
-                m_levelScreen.ProjectileManager.FireProjectile(cardinalData);
-                cardinalData.AngleOffset = 260 + (startProjIndex * 10) * flipper;
-                m_levelScreen.ProjectileManager.FireProjectile(cardinalData);
-
-                cardinalData.Dispose();
-
-                startProjIndex++;
-                Tween.RunFunction(0.12f, this, "ThrowCardinalProjectiles", startProjIndex, false, flipper);
+                    cardinalData.AngleOffset = ((startProjIndex * 10) + j - k) * flipper;
+                    m_levelScreen.ProjectileManager.FireProjectile(cardinalData);
+                }
             }
+
+            cardinalData.Dispose();
+            Tween.RunFunction(0.12f, this, "ThrowCardinalProjectiles", startProjIndex + 1, false, flipper);
         }
 
         public void ThrowCardinalProjectilesNeo(int startProjIndex, bool randomizeFlipper, int flipper)
@@ -521,7 +523,7 @@ namespace RogueCastle
             m_pupil.Scale = new Vector2(0.9f, 0.9f);
         }
 
-        public void ThrowSprayProjectiles(bool firstShot)
+        public void ThrowSprayProjectiles(int offset)
         {
             ProjectileData starData = new ProjectileData(this)
             {
@@ -541,17 +543,8 @@ namespace RogueCastle
             int y = 360 / 12;
             for (int i = 0; i <= 360; i = i + y)
             {
-                if (firstShot== true)
-                    starData.AngleOffset = 10 + i;
-                else
-                    starData.AngleOffset = 20 + i;
-
+                starData.AngleOffset = offset + i;
                 m_levelScreen.ProjectileManager.FireProjectile(starData);
-            }
-
-            if (firstShot == true)
-            {
-                Tween.RunFunction(0.8f, this, "ThrowSprayProjectiles", false);
             }
 
             //int y = 360 / 12; //12;
@@ -594,26 +587,22 @@ namespace RogueCastle
                 Scale = ProjectileScale,
             };
 
-            //for (int k = 0; k < 5; k++)
-            {
-                RandomBullet.Angle = new Vector2(0, 44);
-                m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
-                RandomBullet.Angle = new Vector2(45, 89);
-                m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
-                RandomBullet.Angle = new Vector2(90, 134);
-                m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
-                RandomBullet.Angle = new Vector2(135, 179);
-                m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
-                RandomBullet.Angle = new Vector2(180, 224);
-                m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
-                RandomBullet.Angle = new Vector2(225, 269);
-                m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
-                RandomBullet.Angle = new Vector2(270, 314);
-                m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
-                RandomBullet.Angle = new Vector2(315, 359);
-                m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
-//                ls.AddAction(new DelayLogicAction(0.575f));
-            }
+            RandomBullet.Angle = new Vector2(0, 44);
+            m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
+            RandomBullet.Angle = new Vector2(45, 89);
+            m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
+            RandomBullet.Angle = new Vector2(90, 134);
+            m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
+            RandomBullet.Angle = new Vector2(135, 179);
+            m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
+            RandomBullet.Angle = new Vector2(180, 224);
+            m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
+            RandomBullet.Angle = new Vector2(225, 269);
+            m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
+            RandomBullet.Angle = new Vector2(270, 314);
+            m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
+            RandomBullet.Angle = new Vector2(315, 359);
+            m_levelScreen.ProjectileManager.FireProjectile(RandomBullet);
             RandomBullet.Dispose();
         }
 

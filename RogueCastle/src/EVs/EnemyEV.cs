@@ -802,7 +802,7 @@ namespace RogueCastle
         public static Vector2 Eyeball_Miniboss_KnockBack = new Vector2(0, 0);
         public static Vector2 Eyeball_Miniboss_Scale = new Vector2(3.3f, 3.3f);
         public static Vector2 Eyeball_Miniboss_ProjectileScale = new Vector2(2.4f, 2.4f);
-        public static Color Eyeball_Miniboss_Tint = new Color(255, 255, 255);
+        public static Color Eyeball_Miniboss_Tint = new Color(190, 95, 95);
         public const int Eyeball_Miniboss_MeleeRadius = 325;
         public const int Eyeball_Miniboss_ProjectileRadius = 690;
         public const int Eyeball_Miniboss_EngageRadius = 850;
@@ -827,7 +827,7 @@ namespace RogueCastle
         public static Vector2 Fairy_Basic_KnockBack = new Vector2(300, 250);
         public static Vector2 Fairy_Basic_Scale = new Vector2(2.8f, 2.8f);
         public static Vector2 Fairy_Basic_ProjectileScale = new Vector2(1.5f, 1.5f);
-        public static Color Fairy_Basic_Tint = new Color(255, 255, 255);
+        public static Color Fairy_Basic_Tint = new Color(190, 95, 95);
         public const int Fairy_Basic_MeleeRadius = 225;
         public const int Fairy_Basic_ProjectileRadius = 700;
         public const int Fairy_Basic_EngageRadius = 925;
