@@ -20,7 +20,12 @@ namespace RogueCastle
         public Vector2 KnockBack { get; internal set; }
         protected float CurrentAirSpeed = 0;
         public float DoubleJumpHeight { get; internal set; }
-        public bool CanBeKnockedBack { get; set; }
+        
+        public bool canBeKnockedBack { get; set; }
+        public bool CanBeKnockedBack {
+            get => canBeKnockedBack && !Game.PlayerStats.GodMode;
+            set => canBeKnockedBack = value;
+        }
 
         public float SlopeClimbRotation = 45;
 
