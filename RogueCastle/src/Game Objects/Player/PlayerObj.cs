@@ -669,7 +669,7 @@ namespace RogueCastle
             if (m_debugInputMap.JustPressed(DEBUG_PURCHASE_ALL_BLUEPRINTS))
                 Game.EquipmentSystem.SetBlueprintState(EquipmentState.Purchased);
 
-            if ((InputManager.Pressed(Keys.LeftShift, PlayerIndex.One) || InputManager.Pressed(Buttons.LeftShoulder, PlayerIndex.One)) && CanRun == true && m_isTouchingGround == true)
+            if ((InputManager.Pressed(Keys.LeftShift, PlayerIndex.One) || InputManager.Pressed(Buttons.LeftShoulder, PlayerIndex.One)) && CanRun == true)
                 this.CurrentSpeed *= RunSpeedMultiplier;
 
             if (InputManager.JustPressed(Keys.B, this.PlayerIndex))
@@ -878,7 +878,7 @@ namespace RogueCastle
                     }
                     justJumped = true;
                 }
-                else if ((Game.GlobalInput.JustPressed(InputMapType.PLAYER_JUMP1) || Game.GlobalInput.JustPressed(InputMapType.PLAYER_JUMP2)) && m_isTouchingGround == false && m_doubleJumpCount < TotalDoubleJumps && m_dropThroughGroundTimer <= 0)
+                else if ((Game.GlobalInput.JustPressed(InputMapType.PLAYER_JUMP1) || Game.GlobalInput.JustPressed(InputMapType.PLAYER_JUMP2)) && m_isTouchingGround == false && (m_doubleJumpCount < TotalDoubleJumps || Game.PlayerStats.GodMode) && m_dropThroughGroundTimer <= 0)
                 {
                     State = STATE_JUMPING;
                     AccelerationY = -DoubleJumpHeight;
@@ -1106,7 +1106,7 @@ namespace RogueCastle
             }
 
             // Code for dashing.
-            if (m_dashCooldownCounter <= 0 && (m_isTouchingGround == true || (m_isTouchingGround == false && m_airDashCount < TotalAirDashes)) && State != STATE_BLOCKING && State != STATE_TANOOKI)
+            if (m_dashCooldownCounter <= 0 && (m_isTouchingGround == true || (m_isTouchingGround == false && (m_airDashCount < TotalAirDashes || Game.PlayerStats.GodMode))) && State != STATE_BLOCKING && State != STATE_TANOOKI)
             {
                 if (CanAirDash == true)
                 {
@@ -3856,7 +3856,7 @@ namespace RogueCastle
 
         public bool CanAirDash
         {
-            get { return TotalAirDashes > 0; }
+            get { return TotalAirDashes > 0 || Game.PlayerStats.GodMode; }
         }
 
         public bool CanBlock
