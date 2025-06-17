@@ -2994,7 +2994,7 @@ namespace RogueCastle
             m_player.StopAllSpells();
 
             // Adding treasure chest icons to map for Spelunker.
-            if (Game.PlayerStats.Class == ClassType.Banker2)
+            if (Game.PlayerStats.Class == ClassType.Banker2 || Game.PlayerStats.GodMode)
             {
                 m_miniMapDisplay.AddAllIcons(this.RoomList);
                 (ScreenManager as RCScreenManager).AddIconsToMap(this.RoomList);
