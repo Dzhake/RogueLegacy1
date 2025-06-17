@@ -3,9 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-  </PropertyGroup>
-
-  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyName>RogueLegacyDzhakesMod</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
